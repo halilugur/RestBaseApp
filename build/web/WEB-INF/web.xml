@@ -25,13 +25,10 @@
         <welcome-file>/</welcome-file>
     </welcome-file-list>
     <servlet>
-        <!-- Servlet adı ve class tanımı yapıyoruz -->
-        <!-- Dikkat etmemiz gereken servlet-class parametresinin jersey servlet container'ı olmasıdır -->
         <servlet-name>Flight Service</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         
-        <!-- init param ile servlete özgü paket tanımı yapıyoruz. İlgili url geldiğinde 
-        container url'e ulaşmak için bu paket içerisinde arama yapacaktır.-->
+        <!-- Url üzerinden ulaşmak istediğimiz web servislerin bulunduğu paket. -->
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>webservice</param-value>
@@ -41,9 +38,7 @@
     </servlet>
     
     <servlet-mapping>
-        <!-- Servlet mapping yapıyoruz -->
-        <!-- url pattern olarak display-name/rest/ ile başlayan herhangi bir url request geldiginde container ilgili paket
-        icerisinde kaynagı arayacaktır. -->
+        <!-- Url üzerinden istek oluşturabilmek için url patern. -->
         <servlet-name>Flight Service</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
