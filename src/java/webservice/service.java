@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package webservice;
 
 import javax.ws.rs.GET;
@@ -17,16 +12,28 @@ import javax.ws.rs.core.MediaType;
 @Path("/service")
 public class service {
 
-    @Path("/text") // response olarak text return eden method icin path yolu , /hello/text
-    @GET // http method type
+    /**
+     * @Path -> Metoda erişimi sağlar. URL = /service/text
+     * @GET -> Oluşacak olan HTTP isteği
+     * @Produces -> TEXT tipinde dönüş değeri sağlar.
+     * @return 
+     */
+    @Path("/text")
+    @GET
     @Produces(MediaType.TEXT_PLAIN) //response type , text
     public String sayTextHello() {
         return "Hello Restful..";
     }
 
-    @Path("/xml") // response olarak text return eden method icin path yolu , /hello/xml
-    @GET // http method type
-    @Produces(MediaType.TEXT_XML) // response type , xml
+    /**
+     * @Path -> Metoda erişimi sağlar. URL = /service/xml
+     * @GET -> Oluşacak olan HTTP isteği
+     * @Produces -> XML tipinde dönüş değeri sağlar.
+     * @return 
+     */
+    @Path("/xml")
+    @GET
+    @Produces(MediaType.TEXT_XML)
     public String sayXMLHello() {
         final StringBuilder builder = new StringBuilder();
         builder.append("<?xml version=\"1.0\"?>");
@@ -34,19 +41,30 @@ public class service {
         return builder.toString();
     }
 
-    @Path("/html") // response olarak text return eden method icin path yolu , /hello/html
-    @GET // http method type
-    @Produces(MediaType.TEXT_HTML) // response type , html
+    /**
+     * @Path -> Metoda erişimi sağlar. URL = /service/html
+     * @GET -> Oluşacak olan HTTP isteği.
+     * @Produces -> HTML tipinde dönüş değeri sağlar.
+     * @return 
+     */
+    @Path("/html")
+    @GET
+    @Produces(MediaType.TEXT_HTML)
     public String sayHtmlHello() {
         final StringBuilder builder = new StringBuilder();
-        builder.append("<html> <title> Hello Restful.. </title> ");
-        builder.append("<body> <h2> Hello Restful.. </h2> </body> </html>");
+        builder.append("<html> <title> Yeni Servise Hoşgeldiniz <b>RESTFULL</b> </title> ");
         return builder.toString();
     }
 
-    @Path("/json") // response olarak text return eden method icin path yolu , /hello/html
-    @GET // http method type
-    @Produces(MediaType.APPLICATION_JSON) // respnse type , html
+    /**
+     * @Path -> Metoda erişimi sağlar. URL = /service/json
+     * @GET -> Oluşacak olan HTTP isteği.
+     * @Produces -> JSON tipinde dönüş değeri sağlar.
+     * @return 
+     */
+    @Path("/json")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public String sayJsonHello() {
         final StringBuilder builder = new StringBuilder();
         builder.append("{ \"name\" : \"halil\" , ");
